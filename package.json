@@ -1,0 +1,20 @@
+{
+  "name": "amount_with_letters",
+  "version": "1.0.0",
+  "description": "Get amount in letters (string)",
+  "main": "index.js",
+  "scripts": {
+    "compile": "babel -d lib/ index.js test/",
+    "prepublish": "npm run compile",
+    "test": "mocha --require babel-core/register --reporter spec"
+  },
+  "author": "Mert Salık",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
