@@ -9,7 +9,7 @@ npm test
 
 ## usage
 ```
-var chai = require('miktar');
+var miktar = require('miktar');
 var ikiyuz = miktar.amount2Text(200);  
 console.log(ikiyuz);  
 ```
