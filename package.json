@@ -1,5 +1,5 @@
 {
-  "name": "amount_with_letters",
+  "name": "miktar",
   "version": "1.0.0",
   "description": "Get amount in letters (string)",
   "main": "index.js",
