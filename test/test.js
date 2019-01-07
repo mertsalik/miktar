@@ -4,6 +4,26 @@ var chai = require('chai');
 var miktar = require('../index');
 
 describe('#miktar', function () {
+
+    // rational numbers
+    it('should convert rational numbers', function () {
+        // http://www.tdk.gov.tr/index.php?option=com_content&view=article&id=%20182:Sayilarin-s
+        var result = miktar.amount2Text(1.30);
+        chai.expect(result).to.equal("birTL,otuzkr.");
+
+        var result = miktar.amount2Text(16.15);
+        chai.expect(result).to.equal("onaltıTL,onbeşkr.");
+
+        var result = miktar.amount2Text(127.07);
+        chai.expect(result).to.equal("yüzyirmiyediTL,yedikr.");
+
+        var result = miktar.amount2Text(160.0212);
+        chai.expect(result).to.equal("yüzaltmışTL,ikikr.");
+
+        var result = miktar.amount2Text(160.);
+        chai.expect(result).to.equal("yüzaltmış");
+    });
+
     it('should convert single digits', function () {
         var result = miktar.amount2Text(1);
         chai.expect(result).to.equal('bir');
@@ -14,6 +34,8 @@ describe('#miktar', function () {
         var result = miktar.amount2Text(0);
         chai.expect(result).to.equal("");
     });
+
+
 
     it('should convert double digits', function () {
         var result = miktar.amount2Text(10);
@@ -126,7 +148,7 @@ describe('#miktar', function () {
         chai.expect(onmilyonikibindokuzyuzaltmisalti).to.equal('onmilyonikibindokuzyüzaltmışaltı');
     });
 
-    it('should convert nine digits and more', function(){
+    it('should convert nine digits and more', function () {
         var yuzyirmialtimilyarbirmilyonkirkdortbinbesyuzaltmis = miktar.amount2Text(126001044560);
         chai.expect(yuzyirmialtimilyarbirmilyonkirkdortbinbesyuzaltmis).to.equal('yüzyirmialtımilyarbirmilyonkırkdörtbinbeşyüzaltmış')
     });

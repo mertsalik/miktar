@@ -51,6 +51,24 @@ exports.amount2Text = function (amount) {
     if (!amountInString.length) {
         return "";
     }
+    // split the fractional part
+    var fractional_part = amountInString.split(".")[1]
+    amountInString = amountInString.split(".")[0]
+    if (fractional_part != undefined){
+
+        if (fractional_part.length == 1){
+            // fill right part with zero.
+            fractional_part = fractional_part + "0";
+        }
+        else if (fractional_part.length >= 2){
+            fractional_part = fractional_part.slice(0, 2);
+        }
+        else{
+            // bug or input like "127." or "5."
+        }
+
+        return this.amount2Text(amountInString) + "TL," + this.amount2Text(fractional_part) + "kr.";
+    }
     if (amountInString.length == 1) {
         return this._(singleDigitMap[amount]);
     }
